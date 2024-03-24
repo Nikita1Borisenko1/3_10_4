@@ -13,39 +13,26 @@ namespace example_3_10_4
     {
         static void Main(string[] args)
         {
-            int minValue = 0;
-            Write("Введите число");
-            int firstnumber = int.Parse(Console.ReadLine());
-            Write("Введите число");
-            int secondnumber = int.Parse(Console.ReadLine());
-            Write("Введите число");
-            int thirdnumber = int.Parse(Console.ReadLine());
-            Write("Введите число");
-            int fournumber = int.Parse(Console.ReadLine());
+            Write("Введите длину последовательности: ");
 
-            if (((firstnumber < secondnumber) && (firstnumber < thirdnumber) && (firstnumber < fournumber)))
+            int count = int.Parse(ReadLine());
+
+            int minNumber = int.MaxValue;
+
+            for (int i = 0; i < count; i++)
             {
-                minValue = firstnumber;
-            }
-            else
-            {
-                if (((firstnumber > secondnumber) && (secondnumber < thirdnumber) && (secondnumber < fournumber)))
-                { minValue = secondnumber; }
-                else
+                Write("Введите число: ");
+
+                int inputNumber = int.Parse(ReadLine());
+
+                if (inputNumber < minNumber)
                 {
-                    if (((firstnumber > secondnumber) && (secondnumber > thirdnumber) && (thirdnumber < fournumber)))
-                    { minValue = thirdnumber; }
-                    else
-                    {
-                        if (((firstnumber > secondnumber) && (secondnumber < thirdnumber) && (secondnumber > fournumber)))
-                        {
-                            minValue = fournumber;
-                        }
-
-                        WriteLine($"Минимальное значение = {minValue}");
-                    }
+                    minNumber = inputNumber;
                 }
             }
+
+            WriteLine($"Минимальное число последовательности: {minNumber}");
+           ReadKey(true);
         }
     }
 }
